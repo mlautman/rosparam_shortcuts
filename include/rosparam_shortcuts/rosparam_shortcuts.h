@@ -50,6 +50,9 @@
 // Eigen
 #include <Eigen/Geometry>
 
+// Eigen STL
+#include <eigen_stl_containers/eigen_stl_containers.h>
+
 // this package
 #include <rosparam_shortcuts/deprecation.h>
 
@@ -73,13 +76,7 @@ namespace rosparam_shortcuts
  */
 bool get(const std::string &parent_name, const ros::NodeHandle &nh, const std::string &param_name, bool &value);
 
-bool get(const std::string &parent_name, const ros::NodeHandle &nh, const std::string &params_name,
-         std::map<std::string, bool> &parameters);
-
 bool get(const std::string &parent_name, const ros::NodeHandle &nh, const std::string &param_name, double &value);
-
-bool get(const std::string &parent_name, const ros::NodeHandle &nh, const std::string &param_name,
-         std::vector<double> &values);
 
 bool get(const std::string &parent_name, const ros::NodeHandle &nh, const std::string &param_name, int &value);
 
@@ -87,17 +84,31 @@ bool get(const std::string &parent_name, const ros::NodeHandle &nh, const std::s
 
 bool get(const std::string &parent_name, const ros::NodeHandle &nh, const std::string &param_name, std::string &value);
 
-bool get(const std::string &parent_name, const ros::NodeHandle &nh, const std::string &param_name,
-         std::vector<std::string> &values);
+bool get(const std::string &parent_name, const ros::NodeHandle &nh, const std::string &param_name, ros::Duration &value);
 
-bool get(const std::string &parent_name, const ros::NodeHandle &nh, const std::string &param_name,
-         ros::Duration &value);
+bool get(const std::string &parent_name, const ros::NodeHandle &nh, const std::string &param_name, Eigen::Isometry3d &value);
 
-bool get(const std::string &parent_name, const ros::NodeHandle &nh, const std::string &param_name,
-         Eigen::Isometry3d &value);
+bool get(const std::string &parent_name, const ros::NodeHandle &nh, const std::string &param_name, geometry_msgs::Pose &value);
 
-bool get(const std::string &parent_name, const ros::NodeHandle &nh, const std::string &param_name,
-         geometry_msgs::Pose &value);
+// Vectors
+bool get(const std::string &parent_name, const ros::NodeHandle &nh, const std::string &param_name, std::vector<bool> &values);
+
+bool get(const std::string &parent_name, const ros::NodeHandle &nh, const std::string &param_name, std::vector<double> &values);
+
+bool get(const std::string &parent_name, const ros::NodeHandle &nh, const std::string &param_name, std::vector<int> &values);
+
+bool get(const std::string &parent_name, const ros::NodeHandle &nh, const std::string &param_name, std::vector<std::size_t> &values);
+
+bool get(const std::string &parent_name, const ros::NodeHandle &nh, const std::string &param_name, std::vector<std::string> &values);
+
+bool get(const std::string &parent_name, const ros::NodeHandle &nh, const std::string &param_name, std::vector<ros::Duration> &values);
+
+bool get(const std::string &parent_name, const ros::NodeHandle &nh, const std::string &param_name, EigenSTL::vector_Isometry3d &values);
+
+bool get(const std::string &parent_name, const ros::NodeHandle &nh, const std::string &param_name, std::vector<geometry_msgs::Pose> &values);
+
+// Maps
+bool get(const std::string &parent_name, const ros::NodeHandle &nh, const std::string &params_name, std::map<std::string, bool> &parameters);
 
 /**
  * \brief Output a string of values from an array for debugging

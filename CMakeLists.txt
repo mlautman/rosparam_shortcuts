@@ -7,6 +7,7 @@ add_compile_options(-std=c++14)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   cmake_modules
+  eigen_stl_containers
   eigen_conversions # TODO(davetcoleman) remove this dependency, only for build testing
   roslint
 )
@@ -21,6 +22,7 @@ catkin_package(
     ${PROJECT_NAME}
   CATKIN_DEPENDS
     roscpp
+    eigen_stl_containers
   DEPENDS
     EIGEN3
 )
